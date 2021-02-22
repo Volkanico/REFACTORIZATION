@@ -1,12 +1,15 @@
 package com.company;
 
 public class Discount {
-
-    public static  double applyDiscount(Customer customer, double price, double discount) {
+    public static double applyDiscount(Customer customer, double price, double discount) {
         double finalPrice;
         double appliedVat;
 
-        switch (getType()) {
+        appliedVat = appliedVat(customer);
+    }
+    public static double appliedVat(Customer customer) {
+        double appliedVat;
+        switch (customer.getType()) {
             case Customer.NORMAL:
                 appliedVat = 1.21f;
                 break;
@@ -20,14 +23,19 @@ public class Discount {
                 appliedVat = 1.21f;
                 break;
         }
-        if (price > 50 && isVip()) {
-            finalPrice = price * 0.5;
-        } else if (price > 10 && isSpecial()) {
-            finalPrice = price * 0.1;
+        return appliedVat;
+    }
+    public static double appliedDiscount (Customer customer, double price) {
+
+        if (price > 50 && customer.isVip()) {
+            price = price * 0.5;
+        } else if (price > 10 && customer.isSpecial()) {
+            price = price * 0.1;
         } else {
-            finalPrice = price;
+            price = price;
         }
 
-        return finalPrice * appliedVat - discount;
+        return price;
+
     }
 }

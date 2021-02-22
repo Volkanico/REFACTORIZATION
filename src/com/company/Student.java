@@ -1,6 +1,8 @@
 package com.company;
 
 public class Student {
+
+
     public float evaluateTerm(float homeworkMark, float examMark, float attitude) {
         float examMarkDef = examMark;
         float homeWorkDef = homeworkMark;

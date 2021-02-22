@@ -16,10 +16,6 @@ public class Customer {
         this.type = type;
     }
 
-    public double applyDiscount(double price, double discount) {
-        return Discount.applyDiscount();
-    }
-
     public int getType() {
         return type;
     }
